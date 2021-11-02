@@ -47,7 +47,6 @@ public class TimeObject : MonoBehaviour
         {
             pointsInTime.RemoveAt(pointsInTime.Count - 1);
         }
-
         pointsInTime.Insert(0, new PointPositionInTime(transform.position, transform.rotation));
     }
 
@@ -67,4 +66,5 @@ public class TimeObject : MonoBehaviour
     }
 
     public float GetRecordTime => recordTime;
+    public bool IsRewind => isRewinding;
 }

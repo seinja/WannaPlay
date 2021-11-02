@@ -12,7 +12,7 @@ public class Gun : MonoBehaviour
 
     public void Update()
     {
-        if (!isFired)
+        if (!isFired && !boxesCheker.transform.GetChild(0).GetComponent<TimeObject>().IsRewind)
         {
             if (Input.GetMouseButtonDown(0))
             {
