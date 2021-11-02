@@ -1,5 +1,4 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -14,10 +13,10 @@ public class BoxesCheker : MonoBehaviour
     public void Start()
     {
         rewindButton.interactable = false;
-        countOfObjectsToRewind = transform.hierarchyCount-1;
+        countOfObjectsToRewind = transform.hierarchyCount - 1;
     }
 
-    public void AddPrepareBox() 
+    public void AddPrepareBox()
     {
         countOfObjectsPrepare++;
         if (countOfObjectsPrepare == countOfObjectsToRewind)
@@ -26,10 +25,7 @@ public class BoxesCheker : MonoBehaviour
         }
     }
 
-    
-
-
-    public void StartRewindInChilds() 
+    public void StartRewindInChilds()
     {
         for (int i = 0; i < countOfObjectsToRewind; i++)
         {
@@ -37,12 +33,12 @@ public class BoxesCheker : MonoBehaviour
         }
         StartCoroutine(ReloadGun());
     }
-    public void  UnPrepare() 
+    public void UnPrepare()
     {
         countOfObjectsPrepare = 0;
     }
 
-    IEnumerator ReloadGun() 
+    IEnumerator ReloadGun()
     {
         yield return new WaitForSeconds(1f);
         gun.ReloadGun();

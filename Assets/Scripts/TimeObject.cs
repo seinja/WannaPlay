@@ -1,42 +1,44 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody))]
 public class TimeObject : MonoBehaviour
 {
     private bool isRewinding = false;
-    
+
     [SerializeField] private float recordTime = 10f;
 
     List<PointPositionInTime> pointsInTime;
-    Rigidbody rb;
+    Rigidbody rigidbody;
 
-    private void Start()
+     void Start()
     {
         pointsInTime = new List<PointPositionInTime>();
-        rb = GetComponent<Rigidbody>();
-
+        rigidbody = GetComponent<Rigidbody>();
     }
 
     void FixedUpdate()
     {
         if (isRewinding)
+        {
             Rewind();
+        }
         else
+        {
             Record();
+        }
     }
 
     public void StartRewind()
     {
         isRewinding = true;
-        rb.isKinematic = true;
+        rigidbody.isKinematic = true;
     }
 
     public void StopRewind()
     {
         isRewinding = false;
-        rb.isKinematic = false;
+        rigidbody.isKinematic = false;
     }
 
     void Record()

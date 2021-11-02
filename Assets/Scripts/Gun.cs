@@ -1,19 +1,17 @@
 ﻿using UnityEngine;
-using UnityEngine.EventSystems;
 
 public class Gun : MonoBehaviour
 {
-    [SerializeField] private GameObject _bullet;
-    [SerializeField] private GameObject _targetDirection;
+    [SerializeField] private GameObject bulletPrefab;
+    [SerializeField] private GameObject targetDirection;
 
-    public float _bulletForce;
+    public float bulletForce;
     private bool isAiming = false;
     private bool isFired = false;
 
     public void Update()
     {
-
-        if (!isFired) 
+        if (!isFired)
         {
             if (Input.GetMouseButtonDown(0))
             {
@@ -31,23 +29,20 @@ public class Gun : MonoBehaviour
                 Shoot();
             }
         }
-       
-
     }
 
     private void Aiming()
     {
-        _targetDirection.SetActive(true);
+        targetDirection.SetActive(true);
     }
 
     private void Shoot()
     {
-        GameObject _bulletPart = Instantiate(_bullet, transform.position, Quaternion.identity);
-        Vector3 _target = _targetDirection.transform.position - transform.position;
-        _bulletPart.GetComponent<Rigidbody>().AddForce(_target * _bulletForce, ForceMode.Impulse);
-        _targetDirection.SetActive(false);
+        GameObject bullet = Instantiate(bulletPrefab, transform.position, Quaternion.identity);
+        Vector3 target = targetDirection.transform.position - transform.position;
+        bullet.GetComponent<Rigidbody>().AddForce(target * bulletForce, ForceMode.Impulse);
+        targetDirection.SetActive(false);
         isFired = true;
-
     }
 
     public void ReloadGun() => isFired = false;

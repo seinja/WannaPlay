@@ -14,21 +14,18 @@ public class Box : MonoBehaviour
         StartCoroutine(CheckrStation());
     }
 
-    IEnumerator CheckrStation() 
+    IEnumerator CheckrStation()
     {
         yield return new WaitForSeconds(2.5f);
         if (rb.velocity == Vector3.zero)
         {
             boxesCheker.AddPrepareBox();
         }
-        else 
+        else
         {
             boxesCheker.UnPrepare();
         }
         yield return new WaitForSecondsRealtime(1f);
-            StartCoroutine(CheckrStation());
-        
+        StartCoroutine(CheckrStation());
     }
-
-
 }

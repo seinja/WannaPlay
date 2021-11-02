@@ -15,6 +15,5 @@ namespace Assets.Scripts
             yield return new WaitForSecondsRealtime(2f);
             Destroy(gameObject);
         }
-
     }
 }

@@ -13,10 +13,4 @@ public class Aim : MonoBehaviour
             transform.position = new Vector3(raycastHit.point.x + 1, raycastHit.point.y, raycastHit.point.z);
         }
     }
-
-
-    
-
-
-
 }
