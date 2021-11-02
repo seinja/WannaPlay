@@ -4,6 +4,7 @@ public class Gun : MonoBehaviour
 {
     [SerializeField] private GameObject bulletPrefab;
     [SerializeField] private GameObject targetDirection;
+    [SerializeField] private BoxesCheker boxesCheker;
 
     public float bulletForce;
     private bool isAiming = false;
@@ -42,11 +43,8 @@ public class Gun : MonoBehaviour
         Vector3 target = targetDirection.transform.position - transform.position;
         bullet.GetComponent<Rigidbody>().AddForce(target * bulletForce, ForceMode.Impulse);
         targetDirection.SetActive(false);
+        boxesCheker.StartCheckChild();
         isFired = true;
     }
-
     public void ReloadGun() => isFired = false;
-
-
-
 }

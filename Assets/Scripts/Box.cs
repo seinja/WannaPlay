@@ -11,12 +11,9 @@ public class Box : MonoBehaviour
     {
         boxesCheker = FindObjectOfType<BoxesCheker>();
         rb = GetComponent<Rigidbody>();
-        StartCoroutine(CheckrStation());
     }
-
-    IEnumerator CheckrStation()
+    public IEnumerator CheckStation()
     {
-        yield return new WaitForSeconds(2.5f);
         if (rb.velocity == Vector3.zero)
         {
             boxesCheker.AddPrepareBox();
@@ -26,6 +23,6 @@ public class Box : MonoBehaviour
             boxesCheker.UnPrepare();
         }
         yield return new WaitForSecondsRealtime(1f);
-        StartCoroutine(CheckrStation());
+        StartCoroutine(CheckStation());
     }
 }

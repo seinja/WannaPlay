@@ -156,7 +156,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 80, y: -54.8}
+  m_AnchoredPosition: {x: 100, y: -100}
   m_SizeDelta: {x: 200, y: 200}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &220234617
@@ -197,7 +197,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 0
+  m_Interactable: 1
   m_TargetGraphic: {fileID: 220234618}
   m_OnClick:
     m_PersistentCalls:
@@ -232,8 +232,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Sprite: {fileID: 21300000, guid: c7565ed12ca7d8a4b973af9f331d6efb, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -710,9 +710,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 24a9b44276114ba40823d8635bb3710f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _bullet: {fileID: 7668554866390295325, guid: 8f84d4715ad82bd4eb0e180815bc4806, type: 3}
-  _targetDirection: {fileID: 1349387078}
-  _bulletForce: 50
+  bulletPrefab: {fileID: 7668554866390295325, guid: 8f84d4715ad82bd4eb0e180815bc4806,
+    type: 3}
+  targetDirection: {fileID: 1349387078}
+  boxesCheker: {fileID: 1949819987}
+  bulletForce: 30
 --- !u!4 &1499157258
 Transform:
   m_ObjectHideFlags: 0
@@ -854,7 +856,7 @@ PrefabInstance:
         type: 3}
       propertyPath: rewindButton
       value: 
-      objectReference: {fileID: 220234617}
+      objectReference: {fileID: 220234615}
     - target: {fileID: 1297546785341581532, guid: ee6f61f73e3b928459395cf8cb01ff81,
         type: 3}
       propertyPath: m_Name

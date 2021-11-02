@@ -6,15 +6,15 @@ public class TimeObject : MonoBehaviour
 {
     private bool isRewinding = false;
 
-    [SerializeField] private float recordTime = 10f;
+    [SerializeField] private float recordTime = 5f;
 
     List<PointPositionInTime> pointsInTime;
-    Rigidbody rigidbody;
+    Rigidbody rb;
 
-     void Start()
+    void Start()
     {
         pointsInTime = new List<PointPositionInTime>();
-        rigidbody = GetComponent<Rigidbody>();
+        rb = GetComponent<Rigidbody>();
     }
 
     void FixedUpdate()
@@ -32,13 +32,13 @@ public class TimeObject : MonoBehaviour
     public void StartRewind()
     {
         isRewinding = true;
-        rigidbody.isKinematic = true;
+        rb.isKinematic = true;
     }
 
     public void StopRewind()
     {
         isRewinding = false;
-        rigidbody.isKinematic = false;
+        rb.isKinematic = false;
     }
 
     void Record()
@@ -65,4 +65,6 @@ public class TimeObject : MonoBehaviour
             StopRewind();
         }
     }
+
+    public float GetRecordTime => recordTime;
 }
