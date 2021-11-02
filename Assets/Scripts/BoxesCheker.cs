@@ -11,8 +11,6 @@ public class BoxesCheker : MonoBehaviour
     private int countOfObjectsToRewind;
     private int countOfObjectsPrepare;
 
-    public bool isRedy = false;
-
     public void Start()
     {
         rewindButton.interactable = false;
@@ -21,15 +19,14 @@ public class BoxesCheker : MonoBehaviour
 
     public void AddPrepareBox() 
     {
-        Debug.Log("1 : " + countOfObjectsPrepare);
-        Debug.Log("2 : " + countOfObjectsToRewind);
         countOfObjectsPrepare++;
-        if (countOfObjectsPrepare == countOfObjectsToRewind) 
+        if (countOfObjectsPrepare == countOfObjectsToRewind)
         {
-            isRedy = true;
             rewindButton.interactable = true;
         }
     }
+
+    
 
 
     public void StartRewindInChilds() 
@@ -49,7 +46,6 @@ public class BoxesCheker : MonoBehaviour
     {
         yield return new WaitForSeconds(1f);
         gun.ReloadGun();
-        yield return new WaitForSeconds(0.3f);
         rewindButton.interactable = false;
     }
 }

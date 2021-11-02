@@ -16,6 +16,7 @@ public class Box : MonoBehaviour
 
     IEnumerator CheckrStation() 
     {
+        yield return new WaitForSeconds(2.5f);
         if (rb.velocity == Vector3.zero)
         {
             boxesCheker.AddPrepareBox();
